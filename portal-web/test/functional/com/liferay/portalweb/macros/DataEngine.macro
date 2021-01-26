@@ -292,17 +292,17 @@ definition {
 	}
 
 	macro duplicateField {
-        AssertClick.assertPartialTextClickAt(
-            key_fieldFieldLabel = "${fieldFieldLabel}",
-            locator1 = "DDMEditStructure#FORM_FIELD_CONTAINER",
-            value1 = "${fieldFieldLabel}");
+		AssertClick.assertPartialTextClickAt(
+			key_fieldFieldLabel = "${fieldFieldLabel}",
+			locator1 = "DDMEditStructure#FORM_FIELD_CONTAINER",
+			value1 = "${fieldFieldLabel}");
 
-        Click(
-            key_text = "${fieldFieldLabel}",
-            locator1 = "Icon#ANY_VERTICAL_ELLIPSIS");
+		Click(
+			key_text = "${fieldFieldLabel}",
+			locator1 = "Icon#ANY_VERTICAL_ELLIPSIS");
 
-        MenuItem.click(menuItem = "Duplicate");
-    }
+		MenuItem.click(menuItem = "Duplicate");
+	}
 
 	macro editFieldRepeatable {
 		AssertClick.assertPartialTextClickAt(
@@ -452,15 +452,13 @@ definition {
 
 	macro viewFieldHelpText {
 		AssertClick.assertPartialTextClickAt(
-			locator1 = "DDMEditStructure#FORM_FIELD_CONTAINER",
 			key_fieldFieldLabel = "${fieldFieldLabel}",
-			value1 = "${fieldFieldLabel}"
-		);
+			locator1 = "DDMEditStructure#FORM_FIELD_CONTAINER",
+			value1 = "${fieldFieldLabel}");
 		AssertTextEquals.assertValue(
-			locator1 = "Sidebar#DDM_ANY",
 			key_text = "Help",
-			value1 = "${fieldHelp}"
-		);
+			locator1 = "Sidebar#DDM_ANY",
+			value1 = "${fieldHelp}");
 	}
 
 	macro viewNestedField {
