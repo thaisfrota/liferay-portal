@@ -476,7 +476,7 @@ definition {
 			locator1 = "Sidebar#DDM_LABEL",
 			value1 = "${fieldFieldLabel}");
 	}
-	
+
 	macro viewFieldSearchable {
 		AssertClick.assertPartialTextClickAt(
 			key_fieldFieldLabel = "${fieldFieldLabel}",
