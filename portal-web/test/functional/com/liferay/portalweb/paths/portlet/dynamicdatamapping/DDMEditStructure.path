@@ -179,6 +179,11 @@
 	<td></td>
 </tr>
 <tr>
+    <td>FORM_FIELD_DROP_TARGET</td>
+    <td>//div[contains(@class,'ddm-target')]</td>
+    <td></td>
+</tr>
+<tr>
 	<td>FORM_FIELD_SETS_COLLAPSE_BUTTON</td>
 	<td>//div[contains(@class,'fieldset')]//button[contains(@class,'collapse-icon')][//label[text()='${key_fieldsetLabel}']]</td>
 	<td></td>
