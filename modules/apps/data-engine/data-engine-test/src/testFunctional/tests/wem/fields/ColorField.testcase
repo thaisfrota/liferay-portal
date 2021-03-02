@@ -60,24 +60,6 @@ definition {
 			locator1 = "DDMEditStructure#FORM_FIELD_CONTAINER_LABEL");
 	}
 
-	@description = "This is a test for LPS-98070. Make Searchable field disabled"
-	@priority = "4"
-	test DisableSearchablePropertyOfColorField {
-		property portal.acceptance = "false";
-
-		DataEngine.editFieldSearchable(
-			fieldFieldLabel = "Color",
-			searchableType = "Disable");
-
-		WebContentStructures.saveCP();
-
-		WebContentNavigator.gotoEditStructure(structureName = "Structure Name");
-
-		DataEngine.viewFieldSearchable(
-			fieldFieldLabel = "Color",
-			searchableType = "Disable");
-	}
-
 	@description = "This is a test for LPS-98070. Duplicate color Field (using kebab on the top of the field)"
 	@priority = "4"
 	test DuplicateColorFieldOnBuilder {
@@ -218,7 +200,7 @@ definition {
 			value1 = "This field is required.");
 	}
 
-	@description = "This is a test for LPS-98070. Make Searchable field enabled (by keyword)"
+	@description = "This is a test for LPS-98070. Make Searchable field disabled and enabled (by keyword)"
 	@priority = "4"
 	test SetSearchablePropertyOfColorField {
 		property portal.acceptance = "false";
