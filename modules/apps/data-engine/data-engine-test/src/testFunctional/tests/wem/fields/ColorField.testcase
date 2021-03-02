@@ -34,24 +34,6 @@ definition {
 
 	@description = "This is a test for LPS-98070. As a Developer, I want to Implement the color field type"
 	@priority = "5"
-	test AddColorFieldByDragAndDrop {
-		property portal.acceptance = "false";
-
-		DataEngine.addField(
-			fieldFieldLabel = "Color Test",
-			fieldName = "Color");
-
-		WebContentStructures.saveCP(structureName = "Structure Name Test");
-
-		WebContentNavigator.gotoEditStructure(structureName = "Structure Name Test");
-
-		DataEngine.viewField(
-			fieldFieldLabel = "Color Test",
-			fieldName = "Color");
-	}
-
-	@description = "This is a test for LPS-98070. As a Developer, I want to Implement the color field type"
-	@priority = "5"
 	test DeleteColorFieldOnBuilder {
 		property portal.acceptance = "false";
 
