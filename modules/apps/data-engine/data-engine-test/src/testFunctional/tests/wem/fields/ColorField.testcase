@@ -31,6 +31,8 @@ definition {
 		}
 		else {
 			JSONGroup.deleteGroupByName(groupName = "Test Site Name");
+
+			User.logoutPG();
 		}
 	}
 
