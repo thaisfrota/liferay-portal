@@ -19,6 +19,10 @@ definition {
 		WebContentStructures.addCP(
 			structureDescription = "Structure Description Test",
 			structureName = "Structure Name Test");
+
+		DataEngine.addField(
+			fieldFieldLabel = "Color Test",
+			fieldName = "Color");
 	}
 
 	tearDown {
@@ -37,10 +41,6 @@ definition {
 	test DeleteColorFieldOnBuilder {
 		property portal.acceptance = "false";
 
-		DataEngine.addField(
-			fieldFieldLabel = "Color Test",
-			fieldName = "Color");
-
 		WebContentStructures.saveCP(structureName = "Structure Name Test");
 
 		WebContentNavigator.gotoEditStructure(structureName = "Structure Name Test");
@@ -56,10 +56,6 @@ definition {
 	@priority = "4"
 	test DisableSearchablePropertyOfColorField {
 		property portal.acceptance = "false";
-
-		DataEngine.addField(
-			fieldFieldLabel = "Color Test",
-			fieldName = "Color");
 
 		DataEngine.editFieldSearchable(
 			fieldFieldLabel = "Color Test",
@@ -78,10 +74,6 @@ definition {
 	@priority = "4"
 	test DuplicateColorFieldOnBuilder {
 		property portal.acceptance = "false";
-
-		DataEngine.addField(
-			fieldFieldLabel = "Color Test",
-			fieldName = "Color");
 
 		WebContentStructures.saveCP(structureName = "Structure Name Test");
 
@@ -111,10 +103,6 @@ definition {
 	test EditColorFieldNameWithInvalidCharacters {
 		property portal.acceptance = "false";
 
-		DataEngine.addField(
-			fieldFieldLabel = "Color Test",
-			fieldName = "Color");
-
 		DataEngine.editFieldReference(
 			assertFieldReference = "ColorTest1",
 			fieldFieldLabel = "Color Test",
@@ -143,13 +131,9 @@ definition {
 	test EditColorFieldNameWithValidCharacters {
 		property portal.acceptance = "false";
 
-		DataEngine.addField(
-			fieldFieldLabel = "ColorTest",
-			fieldName = "Color");
-
 		DataEngine.editFieldReference(
 			assertFieldReference = "Color_Test",
-			fieldFieldLabel = "ColorTest",
+			fieldFieldLabel = "Color Test",
 			fieldReference = "Color_Test");
 
 		WebContentStructures.saveCP(structureName = "Structure Name Test");
@@ -157,9 +141,9 @@ definition {
 		WebContentNavigator.gotoEditStructure(structureName = "Structure Name Test");
 
 		AssertClick.assertPartialTextClickAt(
-			key_fieldFieldLabel = "ColorTest",
+			key_fieldFieldLabel = "Color Test",
 			locator1 = "DDMEditStructure#FORM_FIELD_CONTAINER",
-			value1 = "ColorTest");
+			value1 = "Color Test");
 
 		Navigator.gotoNavTab(navTab = "Advanced");
 
@@ -174,10 +158,6 @@ definition {
 	@priority = "4"
 	test EditHelpTextOfColorField {
 		property portal.acceptance = "false";
-
-		DataEngine.addField(
-			fieldFieldLabel = "Color Test",
-			fieldName = "Color");
 
 		DataEngine.editFieldTip(
 			fieldFieldLabel = "Color Test",
@@ -198,10 +178,6 @@ definition {
 	test EditLabelOfColorField {
 		property portal.acceptance = "false";
 
-		DataEngine.addField(
-			fieldFieldLabel = "Color Test",
-			fieldName = "Color");
-
 		WebContentStructures.saveCP(structureName = "Structure Name Test");
 
 		WebContentNavigator.gotoEditStructure(structureName = "Structure Name Test");
@@ -219,10 +195,6 @@ definition {
 	@priority = "4"
 	test SetColorFieldAsRequired {
 		property portal.acceptance = "false";
-
-		DataEngine.addField(
-			fieldFieldLabel = "Color Test",
-			fieldName = "Color");
 
 		DataEngine.editFieldRequired(fieldFieldLabel = "Color Test");
 
@@ -246,10 +218,6 @@ definition {
 	@priority = "4"
 	test SetSearchablePropertyOfColorField {
 		property portal.acceptance = "false";
-
-		DataEngine.addField(
-			fieldFieldLabel = "Color Test",
-			fieldName = "Color");
 
 		DataEngine.editFieldSearchable(
 			fieldFieldLabel = "Color Test",
