@@ -94,39 +94,8 @@ definition {
 	}
 
 	@description = "This is a test for LPS-98070. As a Developer, I want to Implement the color field type"
-	@ignore = "true"
-	@priority = "3"
-	test EditColorFieldNameWithInvalidCharacters {
-		property portal.acceptance = "false";
-
-		DMNavigator.gotoEditDocumentType(dmDocumentTypeName = "DM Document Type Name");
-
-		DataEngine.editFieldReference(
-			assertFieldReference = "ColorTest1",
-			fieldFieldLabel = "Color",
-			fieldReference = "%Color*Test @1");
-
-		DDLDataDefinition.save();
-
-		DMNavigator.gotoEditDocumentType(dmDocumentTypeName = "DM Document Type Name");
-
-		AssertClick.assertPartialTextClickAt(
-			key_fieldFieldLabel = "Color",
-			locator1 = "DDMEditStructure#FORM_FIELD_CONTAINER",
-			value1 = "Color");
-
-		Navigator.gotoNavTab(navTab = "Advanced");
-
-		AssertTextEquals.assertValue(
-			key_fieldLabel = "Field Reference",
-			key_fieldName = "fieldReference",
-			locator1 = "Sidebar#TEXT_INPUT",
-			value1 = "ColorTest1");
-	}
-
-	@description = "This is a test for LPS-98070. As a Developer, I want to Implement the color field type"
 	@priority = "4"
-	test EditColorFieldNameWithValidCharacters {
+	test EditColorFieldNameWithValidAndInvalidCharacters {
 		property portal.acceptance = "false";
 
 		DMNavigator.gotoEditDocumentType(dmDocumentTypeName = "DM Document Type Name");
@@ -140,18 +109,28 @@ definition {
 
 		DMNavigator.gotoEditDocumentType(dmDocumentTypeName = "DM Document Type Name");
 
-		AssertClick.assertPartialTextClickAt(
-			key_fieldFieldLabel = "Color",
-			locator1 = "DDMEditStructure#FORM_FIELD_CONTAINER",
-			value1 = "Color");
+		DataEngine.viewFieldReference(
+			fieldFieldLabel = "Color",
+			fieldName = "Color",
+			fieldReference = "Color_Test");
 
-		Navigator.gotoNavTab(navTab = "Advanced");
+		DDLDataDefinition.save();
 
-		AssertTextEquals.assertValue(
-			key_fieldLabel = "Field Reference",
-			key_fieldName = "fieldReference",
-			locator1 = "Sidebar#TEXT_INPUT",
-			value1 = "Color_Test");
+		DMNavigator.gotoEditDocumentType(dmDocumentTypeName = "DM Document Type Name");
+
+		DataEngine.editFieldReference(
+			assertFieldReference = "ColorTest1",
+			fieldFieldLabel = "Color",
+			fieldReference = "%Color*Test @1");
+
+		DDLDataDefinition.save();
+
+		DMNavigator.gotoEditDocumentType(dmDocumentTypeName = "DM Document Type Name");
+
+		DataEngine.viewFieldReference(
+			fieldFieldLabel = "Color",
+			fieldName = "Color",
+			fieldReference = "ColorTest1");
 	}
 
 	@description = "This is a test for LPS-98070. As a Developer, I want to Implement the color field type"
