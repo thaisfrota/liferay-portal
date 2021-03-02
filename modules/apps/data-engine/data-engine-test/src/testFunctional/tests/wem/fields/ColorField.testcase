@@ -140,28 +140,9 @@ definition {
 			value1 = "Color_Test");
 	}
 
-	@description = "This is a test for LPS-98070. Edit the help text of Color Field"
-	@priority = "4"
-	test EditHelpTextOfColorField {
-		property portal.acceptance = "false";
-
-		DataEngine.editFieldTip(
-			fieldFieldLabel = "Color",
-			fieldHelp = "Help Test");
-
-		WebContentStructures.saveCP();
-
-		WebContentNavigator.gotoEditStructure(structureName = "Structure Name");
-
-		DataEngine.viewField(
-			fieldFieldLabel = "Color",
-			fieldHelp = "Help Test",
-			fieldName = "Color");
-	}
-
-	@description = "This is a test for LPS-98070. Edit the label of Color Field"
+	@description = "This is a test for LPS-98070. Add Color field on a form using drag and drop, edit label and help text"
 	@priority = "5"
-	test EditLabelOfColorField {
+	test EditLabelAndHelpTextOfColorField {
 		property portal.acceptance = "false";
 
 		WebContentStructures.saveCP();
@@ -170,10 +151,19 @@ definition {
 
 		DataEngine.editFieldLabel(
 			fieldFieldLabel = "Color",
-			fieldFieldLabelEdit = "Color Edited");
+			fieldFieldLabelEdit = "Edited Color");
+
+		DataEngine.editFieldTip(
+			fieldFieldLabel = "Edited Color",
+			fieldHelp = "Help");
+
+		WebContentStructures.saveCP();
+
+		WebContentNavigator.gotoEditStructure(structureName = "Structure Name");
 
 		DataEngine.viewField(
-			fieldFieldLabel = "Color Edited",
+			fieldFieldLabel = "Edited Color",
+			fieldHelp = "Help",
 			fieldName = "Color");
 	}
 
