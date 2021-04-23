@@ -659,7 +659,7 @@ definition {
 
 		WebContent.addWithStructureCP(
 			column = "2",
-			dmNavTab = "User Personal Folder",
+			dmNavTab = "User Personal Folder 2",
 			navTab = "Web Content Images",
 			row = "2",
 			webContentColor = "2BA676",
