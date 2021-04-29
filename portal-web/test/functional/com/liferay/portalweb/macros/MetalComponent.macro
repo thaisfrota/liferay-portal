@@ -15,7 +15,7 @@ definition {
 	macro waitForManagementBar {
 		AssertVisible(locator1 = "//nav[contains(@class,'management-bar')]");
 
-		MetalComponent.waitForMetalComponent(id = '''document.querySelector("nav.management-bar").parentNode.id''');
+		//MetalComponent.waitForMetalComponent(id = '''document.querySelector("nav.management-bar").parentNode.id''');
 	}
 
 	macro waitForMetalComponent {
