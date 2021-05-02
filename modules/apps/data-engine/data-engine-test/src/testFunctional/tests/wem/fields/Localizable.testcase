@@ -215,6 +215,124 @@ definition {
 			webContentText = "This is a text field");
 	}
 
+	@description = "This is a test for LRQA-66428. This test checks if Localizable property is successfully set when the Portal Instance language is not English US and if it persists for Structures created before changing Portal Instance language"
+	@priority = "5"
+	test LocalizableWithDifferentInstanceLanguage {
+		DataEngine.addFields(fieldNameList = "Text,Numeric");
+
+		DataEngine.addFieldNested(
+			fieldFieldLabel = "Date",
+			fieldName = "Date",
+			targetFieldLabel = "Numeric");
+
+		for (var fieldFieldLabel : list "Text,Numeric,Date") {
+			DataEngine.editFieldLocalizable(fieldFieldLabel = "${fieldFieldLabel}");
+		}
+
+		WebContentStructures.saveCP();
+
+		ApplicationsMenu.gotoPortlet(
+			category = "Configuration",
+			panel = "Control Panel",
+			portlet = "Instance Settings");
+
+		SystemSettings.gotoConfiguration(
+			configurationCategory = "Localization",
+			configurationName = "Language",
+			configurationScope = "Virtual Instance Scope");
+
+		PortalSettings.configureCurrentLanguagesCP(defaultPortalLanguage = "Portuguese (Brazil)");
+
+		WebContentNavigator.openWebContentAdmin(siteURLKey = "test-site-name");
+
+		NavItem.gotoStructures();
+
+		WebContentNavigator.gotoEditStructure(structureName = "WC Structure Title");
+
+		for (var fieldFieldLabel : list "Text,Numeric,Date") {
+			DataEngine.assertLocalizableFieldUnchecked(fieldFieldLabel = "${fieldFieldLabel}");
+		}
+
+		Navigator.gotoBack();
+
+		NavItem.gotoWebContent();
+
+		WebContentNavigator.gotoAddWithStructureCP(structureName = "WC Structure Title");
+
+		WebContent.addCP(webContentTitle = "Web Content Title");
+
+		PortletEntry.changeLocale(locale = "ca-ES");
+
+		WebContent.addCP(webContentTitle = "Web Content Title - ca-ES");
+
+		for (var fieldFieldName : list "Text,Numeric,Date") {
+			DataEngine.assertNonLocalizableField(fieldFieldName = "${fieldFieldName}");
+		}
+
+		PortletEntry.publish();
+
+		NavItem.gotoStructures();
+
+		WebContentStructures.addCP(structureName = "WC Structure Title 2");
+
+		DataEngine.addFields(fieldNameList = "Text,Numeric");
+
+		DataEngine.addFieldNested(
+			fieldFieldLabel = "Date",
+			fieldName = "Date",
+			targetFieldLabel = "Numeric");
+
+		WebContentStructures.saveCP();
+
+		NavItem.gotoWebContent();
+
+		WebContentNavigator.gotoAddWithStructureCP(structureName = "WC Structure Title 2");
+
+		WebContent.addWithStructureCP(
+			webContentDate = "04/01/2021",
+			webContentNumeric = "10",
+			webContentText = "This is a Text field - pt-BR",
+			webContentTitle = "Web Content Title - pt-BR");
+
+		PortletEntry.changeLocale(locale = "ca-ES");
+
+		WebContent.addWithStructureCP(
+			webContentDate = "03/05/2021",
+			webContentNumeric = "20",
+			webContentText = "This is a Text field - ca-ES",
+			webContentTitle = "Web Content Title - ca-ES");
+
+		PortletEntry.publish();
+
+		WebContent.viewWithStructureCP(
+			webContentDate = "04/01/2021",
+			webContentNumeric = "10",
+			webContentText = "This is a Text field - pt-BR",
+			webContentTitle = "Web Content Title - pt-BR");
+
+		WebContent.viewWithStructureCP(
+			skipGotoEditCP = "true",
+			webContentDate = "03/05/2021",
+			webContentLocaleFieldLabel = "ca-ES",
+			webContentNumeric = "20",
+			webContentText = "This is a Text field - ca-ES",
+			webContentTitle = "Web Content Title - ca-ES");
+
+		Navigator.gotoBack();
+
+		ApplicationsMenu.gotoPortlet(
+			category = "Configuration",
+			panel = "Control Panel",
+			portlet = "Instance Settings");
+
+		SystemSettings.gotoConfiguration(
+			configurationCategory = "Localization",
+			configurationName = "Language",
+			configurationScope = "Virtual Instance Scope");
+
+		PortalSettings.configureCurrentLanguagesCP(defaultPortalLanguage = "English (United States)");
+	}
+
 	@description = "This test ensures that it's possible to translate the content of the fields in a fieldset"
 	@priority = "5"
 	test TranslateFieldSetLocalizableOn {
