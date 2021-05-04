@@ -950,10 +950,18 @@ definition {
 	macro editFieldLocalizable {
 		var checkboxName = "Localizable";
 
-		AssertClick.assertPartialTextClickAt(
-			key_fieldFieldLabel = "${fieldFieldLabel}",
-			locator1 = "DDMEditStructure#FORM_FIELD_CONTAINER",
-			value1 = "${fieldFieldLabel}");
+		if (isSet(fieldsetModal)) {
+			AssertClick.assertPartialTextClickAt(
+				key_fieldFieldLabel = "${fieldFieldLabel}",
+				locator1 = "DDMEditStructure#FORM_FIELD_CONTAINER_LABEL_IN_FIELDSET_MODAL",
+				value1 = "${fieldFieldLabel}");
+		}
+		else {
+			AssertClick.assertPartialTextClickAt(
+				key_fieldFieldLabel = "${fieldFieldLabel}",
+				locator1 = "DDMEditStructure#FORM_FIELD_CONTAINER",
+				value1 = "${fieldFieldLabel}");
+		}
 
 		if (IsElementNotPresent(locator1 = "NavTab#ACTIVE_TAB_LINK", key_tab = "Advanced")) {
 			Navigator.gotoNavTab(navTab = "Advanced");
