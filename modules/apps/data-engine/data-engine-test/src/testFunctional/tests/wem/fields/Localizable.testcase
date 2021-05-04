@@ -30,6 +30,112 @@ definition {
 		}
 	}
 
+	@description = "This is a test for LRQA-66432. This test validates it is possible to edit the Localizable property of a field to Off and On on the Fieldset and the propagation of changes."
+	@priority = "4"
+	test EditLocalizableOnPublishedWCWithFieldset {
+		DataEngine.addFieldsets(
+			createNewFieldset = "true",
+			fieldNameList = "Text",
+			fieldsetName = "New Fieldset");
+
+		WebContentStructures.saveCP();
+
+		NavItem.gotoWebContent();
+
+		WebContentNavigator.gotoAddWithStructureCP(structureName = "WC Structure Title");
+
+		WebContent.addWithStructureCP(
+			webContentText = "This is a Text field",
+			webContentTextFieldLabel = "Text",
+			webContentTitle = "Web Content Title");
+
+		PortletEntry.changeLocale(locale = "pt-BR");
+
+		WebContent.addWithStructureCP(
+			webContentText = "This is a Text field - pt-BR",
+			webContentTextFieldLabel = "Text",
+			webContentTitle = "Web Content Title - pt-BR");
+
+		PortletEntry.publish();
+
+		NavItem.gotoStructures();
+
+		WebContentNavigator.gotoEditStructure(structureName = "WC Structure Title");
+
+		DataEngine.gotoFieldsetItemEllipsis(fieldsetName = "New Fieldset");
+
+		MenuItem.click(menuItem = "Edit");
+
+		DataEngine.editFieldLocalizable(
+			fieldFieldLabel = "Text",
+			fieldsetModal = "true");
+
+		FormViewBuilder.saveButtonFieldset();
+
+		FormViewBuilder.propagateChange();
+
+		WebContentStructures.saveCP();
+
+		NavItem.gotoWebContent();
+
+		WebContent.viewWithStructureCP(
+			webContentText = "This is a Text field",
+			webContentTextFieldLabel = "Text",
+			webContentTitle = "Web Content Title");
+
+		PortletEntry.changeLocale(locale = "pt-BR");
+
+		DataEngine.assertNonLocalizableField(fieldFieldName = "Text");
+
+		Navigator.gotoBack();
+
+		NavItem.gotoStructures();
+
+		WebContentNavigator.gotoEditStructure(structureName = "WC Structure Title");
+
+		DataEngine.gotoFieldsetItemEllipsis(fieldsetName = "New Fieldset");
+
+		MenuItem.click(menuItem = "Edit");
+
+		DataEngine.editFieldLocalizable(
+			fieldFieldLabel = "Text",
+			fieldsetModal = "true");
+
+		FormViewBuilder.saveButtonFieldset();
+
+		FormViewBuilder.propagateChange();
+
+		WebContentStructures.saveCP();
+
+		NavItem.gotoWebContent();
+
+		WebContent.viewWithStructureCP(
+			webContentText = "This is a Text field",
+			webContentTextFieldLabel = "Text",
+			webContentTitle = "Web Content Title");
+
+		PortletEntry.changeLocale(locale = "pt-BR");
+
+		WebContent.addWithStructureCP(
+			webContentText = "This is a Text field - pt-BR edited",
+			webContentTextFieldLabel = "Text",
+			webContentTitle = "Web Content Title - pt-BR edited");
+
+		PortletEntry.publish();
+
+		WebContent.viewWithStructureCP(
+			webContentText = "This is a Text field",
+			webContentTextFieldLabel = "Text",
+			webContentTitle = "Web Content Title");
+
+		WebContent.viewWithStructureCP(
+			skipGotoEditCP = "true",
+			webContentLocaleFieldLabel = "pt-BR",
+			webContentText = "This is a Text field - pt-BR edited",
+			webContentTextFieldLabel = "Text",
+			webContentTitle = "Web Content Title - pt-BR edited");
+	}
+
 	@description = "This test ensures that when editing the Localizable state of a field, its content persists"
 	@priority = "5"
 	test EditLocalizableState {
