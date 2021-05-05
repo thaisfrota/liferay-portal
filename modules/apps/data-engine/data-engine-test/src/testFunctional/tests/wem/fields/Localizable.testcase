@@ -317,20 +317,6 @@ definition {
 			webContentNumeric = "20",
 			webContentText = "This is a Text field - ca-ES",
 			webContentTitle = "Web Content Title - ca-ES");
-
-		Navigator.gotoBack();
-
-		ApplicationsMenu.gotoPortlet(
-			category = "Configuration",
-			panel = "Control Panel",
-			portlet = "Instance Settings");
-
-		SystemSettings.gotoConfiguration(
-			configurationCategory = "Localization",
-			configurationName = "Language",
-			configurationScope = "Virtual Instance Scope");
-
-		PortalSettings.configureCurrentLanguagesCP(defaultPortalLanguage = "English (United States)");
 	}
 
 	@description = "This test ensures that it's possible to translate the content of the fields in a fieldset"
