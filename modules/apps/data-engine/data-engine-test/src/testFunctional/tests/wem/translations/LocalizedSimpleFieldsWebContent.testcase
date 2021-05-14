@@ -93,7 +93,7 @@ definition {
 
 		WebContent.addWithStructureCP(webContentTitle = "Web Content Title");
 
-		DataEngine.addRepeatableField(fieldName = "Text");
+		DataEngine.addRepeatableFieldLegacy(fieldName = "Text");
 
 		Type(
 			index = "1",

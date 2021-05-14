@@ -188,7 +188,7 @@ definition {
 
 		WebContent.addWithStructureCP(webContentTitle = "WC WebContent Title");
 
-		DataEngine.addRepeatableField(fieldName = "${key_fieldName}");
+		DataEngine.addRepeatableFieldLegacy(fieldName = "${key_fieldName}");
 
 		Button.clickPublish();
 

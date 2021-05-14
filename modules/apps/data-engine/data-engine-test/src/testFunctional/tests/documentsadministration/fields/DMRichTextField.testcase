@@ -122,7 +122,7 @@ definition {
 
 		PortletEntry.inputTitle(title = "DM Document Type");
 
-		DataEngine.addRepeatableField(fieldName = "Rich Text");
+		DataEngine.addRepeatableFieldLegacy(fieldName = "Rich Text");
 
 		PortletEntry.publish();
 

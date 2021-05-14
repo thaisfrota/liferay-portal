@@ -89,7 +89,7 @@ definition {
 
 		WebContent.addWithStructureCP(webContentTitle = "WC WebContent Title");
 
-		DataEngine.addRepeatableField(fieldName = "Rich Text");
+		DataEngine.addRepeatableFieldLegacy(fieldName = "Rich Text");
 
 		PortletEntry.publish();
 
@@ -216,7 +216,7 @@ definition {
 
 		WebContent.addWithStructureCP(webContentTitle = "WC WebContent Title");
 
-		DataEngine.addRepeatableField(fieldName = "Rich Text");
+		DataEngine.addRepeatableFieldLegacy(fieldName = "Rich Text");
 
 		DataEngine.assertFieldRepeated(
 			fieldName = "RichText",

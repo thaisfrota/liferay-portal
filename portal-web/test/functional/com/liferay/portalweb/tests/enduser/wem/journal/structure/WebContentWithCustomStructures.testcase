@@ -339,7 +339,7 @@ definition {
 			WebContentNavigator.gotoEditCP(webContentTitle = "Web Content Complex Title 1");
 
 			for (var fieldName : list "Logo,Beneficio,Companhia,JeitoIdentificar,Destino,DescricaoOpPar,CompanhiaOperadora") {
-				DataEngine.addRepeatableField(fieldName = "${fieldName}");
+				DataEngine.addRepeatableFieldLegacy(fieldName = "${fieldName}");
 			}
 
 			for (var fieldName : list "Logo,Beneficio,Companhia,JeitoIdentificar,Destino,DescricaoOpPar,CompanhiaOperadora") {
@@ -1511,7 +1511,7 @@ definition {
 
 			PortletEntry.inputTitle(title = "Web Content Title");
 
-			DataEngine.addRepeatableField(fieldName = "RichText");
+			DataEngine.addRepeatableFieldLegacy(fieldName = "RichText");
 		}
 
 		task ("Type content to the first Rich Text field") {

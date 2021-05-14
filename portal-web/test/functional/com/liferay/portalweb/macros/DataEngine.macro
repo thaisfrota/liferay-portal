@@ -583,7 +583,7 @@ definition {
 		Click(locator1 = "Sidebar#BACK");
 	}
 
-	macro addRepeatableField {
+	macro addRepeatableFieldLegacy {
 		var key_fieldName = "${fieldName}";
 
 		Click(locator1 = "DDMField#FIELD_DUPLICATE");

@@ -147,7 +147,7 @@ definition {
 
 		WebContent.addCP(webContentTitle = "Web Content Title");
 
-		DataEngine.addRepeatableField(fieldName = "Separator");
+		DataEngine.addRepeatableFieldLegacy(fieldName = "Separator");
 
 		PortletEntry.publish();
 
