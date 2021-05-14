@@ -272,7 +272,7 @@ definition {
 			webContentContent = "Web Content Content",
 			webContentTitle = "Web Content Title");
 
-		DataEngine.addRepeatableFieldset(fieldsetLabel = "Basic Web Content");
+		DataEngine.addRepeatableField(fieldLabel = "Basic Web Content");
 
 		SelectFrame.selectFrameNoLoading(
 			key_fieldLabel = "content",
