@@ -68,7 +68,7 @@ definition {
 
 		PortletEntry.changeLocale(locale = "pt-BR");
 
-		DataEngine.addRepeatableFieldsGroup(fieldsGroupLabel = "Grupo de Campos");
+		DataEngine.addRepeatableField(fieldLabel = "Grupo de Campos");
 
 		PortletEntry.publish();
 
