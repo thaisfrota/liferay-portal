@@ -250,7 +250,7 @@ definition {
 
 		WebContent.addCP(webContentTitle = "Web Content Title");
 
-		DataEngine.addRepeatableFieldset(fieldsetLabel = "New Fieldset");
+		DataEngine.addRepeatableField(fieldLabel = "New Fieldset");
 
 		PortletEntry.changeLocale(locale = "pt_BR");
 
