@@ -605,16 +605,6 @@ definition {
 			locator1 = "WCEditWebContent#FIELDSET_REPEATABLE_BUTTON");
 	}
 
-	macro addRepeatableFieldsGroup {
-		WaitForElementPresent(
-			key_fieldsetLabel = "${fieldsGroupLabel}",
-			locator1 = "WCEditWebContent#FIELDSET_REPEATABLE_BUTTON");
-
-		Click(
-			key_fieldsetLabel = "${fieldsGroupLabel}",
-			locator1 = "WCEditWebContent#FIELDSET_REPEATABLE_BUTTON");
-	}
-
 	macro addTranslationToFieldset {
 		DataEngine.gotoFieldsetItemEllipsis(fieldsetName = "${fieldsetName}");
 
