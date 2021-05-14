@@ -214,7 +214,7 @@ definition {
 
 		WebContent.addWithStructureCP(webContentTitle = "Web Content Title");
 
-		DataEngine.addRepeatableFieldset(fieldsetLabel = "New Fieldset");
+		DataEngine.addRepeatableField(fieldLabel = "New Fieldset");
 
 		for (var n : list "1,2") {
 			DataEngine.assertFieldRepeated(
