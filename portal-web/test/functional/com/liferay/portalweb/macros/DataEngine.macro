@@ -599,12 +599,6 @@ definition {
 			locator1 = "DataEngineRenderer#REPEATABLE_FIELD_ADD_BUTTON_INDEXED");
 	}
 
-	macro addRepeatableFieldLegacy {
-		var key_fieldName = "${fieldName}";
-
-		Click(locator1 = "DDMField#FIELD_DUPLICATE");
-	}
-
 	macro addRepeatableFieldset {
 		Click(
 			key_fieldsetLabel = "${fieldsetLabel}",
