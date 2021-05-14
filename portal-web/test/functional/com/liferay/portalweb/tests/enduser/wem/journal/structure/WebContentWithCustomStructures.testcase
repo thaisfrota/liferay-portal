@@ -1511,7 +1511,7 @@ definition {
 
 			PortletEntry.inputTitle(title = "Web Content Title");
 
-			DataEngine.addRepeatableFieldLegacy(fieldName = "RichText");
+			DataEngine.addRepeatableField(fieldLabel = "Rich Text");
 		}
 
 		task ("Type content to the first Rich Text field") {
