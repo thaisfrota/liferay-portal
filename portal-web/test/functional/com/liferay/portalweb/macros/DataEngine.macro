@@ -583,6 +583,22 @@ definition {
 		Click(locator1 = "Sidebar#BACK");
 	}
 
+	macro addRepeatableField {
+		if (!(isSet(index))) {
+			var index = "1";
+		}
+
+		WaitForElementPresent(
+			index = "${index}",
+			key_fieldLabel = "${fieldLabel}",
+			locator1 = "DataEngineRenderer#REPEATABLE_FIELD_ADD_BUTTON_INDEXED");
+
+		Click(
+			index = "${index}",
+			key_fieldLabel = "${fieldLabel}",
+			locator1 = "DataEngineRenderer#REPEATABLE_FIELD_ADD_BUTTON_INDEXED");
+	}
+
 	macro addRepeatableFieldLegacy {
 		var key_fieldName = "${fieldName}";
 
