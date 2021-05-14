@@ -339,7 +339,7 @@ definition {
 			WebContentNavigator.gotoEditCP(webContentTitle = "Web Content Complex Title 1");
 
 			for (var fieldName : list "Logo,Beneficio,Companhia,JeitoIdentificar,Destino,DescricaoOpPar,CompanhiaOperadora") {
-				DataEngine.addRepeatableFieldLegacy(fieldName = "${fieldName}");
+				DataEngine.addRepeatableField(fieldLabel = "${fieldName}");
 			}
 
 			for (var fieldName : list "Logo,Beneficio,Companhia,JeitoIdentificar,Destino,DescricaoOpPar,CompanhiaOperadora") {
