@@ -216,7 +216,7 @@ definition {
 
 		WebContent.addWithStructureCP(webContentTitle = "WC WebContent Title");
 
-		DataEngine.addRepeatableFieldLegacy(fieldName = "Rich Text");
+		DataEngine.addRepeatableField(fieldLabel = "Rich Text");
 
 		DataEngine.assertFieldRepeated(
 			fieldName = "RichText",
