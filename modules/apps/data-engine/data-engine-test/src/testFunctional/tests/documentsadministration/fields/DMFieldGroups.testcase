@@ -415,9 +415,7 @@ definition {
 
 		PortletEntry.inputTitle(title = "${dmDocumentTitle}");
 
-		DataEngine.addRepeatableFieldGroups(
-			fieldName = "FieldsGroup",
-			totalPortletCount = "1");
+		DataEngine.addRepeatableField(fieldLabel = "Fields Group");
 
 		PortletEntry.publish();
 
