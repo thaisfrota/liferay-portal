@@ -155,7 +155,7 @@ definition {
 			imageFileName = "${documentName}",
 			navTab = "Documents and Media");
 
-		DataEngine.addRepeatableFieldLegacy(fieldName = "${fieldName}");
+		DataEngine.addRepeatableField(fieldLabel = "${fieldName}");
 
 		AssertTextNotPresent(
 			locator1 = "FormFields#TEXT_FIELD_NULL",
