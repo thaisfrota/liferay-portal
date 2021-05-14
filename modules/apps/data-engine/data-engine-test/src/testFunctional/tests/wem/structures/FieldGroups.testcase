@@ -810,7 +810,7 @@ definition {
 
 		WebContent.addWithStructureCP(webContentTitle = "WC WebContent Title");
 
-		DataEngine.addRepeatableFieldsGroup(fieldsGroupLabel = "Fields Group");
+		DataEngine.addRepeatableField(fieldLabel = "Fields Group");
 
 		PortletEntry.publish();
 
