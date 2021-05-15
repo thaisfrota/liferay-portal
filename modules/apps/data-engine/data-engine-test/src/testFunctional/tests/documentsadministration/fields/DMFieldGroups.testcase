@@ -424,7 +424,7 @@ definition {
 			rowEntry = "${dmDocumentTitle}");
 
 		WebContent.viewDuplicatedField(
-			fieldName = "FieldsGroup",
+			fieldLabel = "Fields Group",
 			totalPortletCount = "2");
 	}
 

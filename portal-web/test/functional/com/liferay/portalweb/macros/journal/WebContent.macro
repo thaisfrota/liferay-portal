@@ -2038,7 +2038,10 @@ definition {
 		while ("${i}" != "${totalPortletCount}") {
 			var i = ${i} + 1;
 
-			AssertElementPresent(locator1 = "WCEditWebContent#REPEATABLE_BUTTON");
+			AssertElementPresent(
+				index = "${i}",
+				key_fieldLabel = "${fieldLabel}",
+				locator1 = "DataEngineRenderer#REPEATABLE_FIELD_ADD_BUTTON_INDEXED");
 		}
 	}
 
