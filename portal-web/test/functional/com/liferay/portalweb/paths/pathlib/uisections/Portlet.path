@@ -90,7 +90,7 @@
 </tr>
 <tr>
 	<td>MODAL_TITLE</td>
-	<td>//div[contains(@class,'modal-content')]//*[@class='modal-title']</td>
+	<td>xpath=(//div[contains(@class,'modal-content')]//*[@class='modal-title'])[last()]</td>
 	<td></td>
 </tr>
 <tr>
