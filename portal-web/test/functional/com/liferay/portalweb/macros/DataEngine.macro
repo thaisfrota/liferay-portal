@@ -1107,6 +1107,7 @@ definition {
 
 		if (isSet(fieldPlaceholder)) {
 			var key_fieldFieldLabel = "${fieldFieldLabel}";
+			key_fieldLabel = "Placeholder";
 			var key_text = "Placeholder";
 
 			Click(locator1 = "Sidebar#DDM_ANY");
@@ -1116,7 +1117,7 @@ definition {
 				value1 = "${fieldPlaceholder}");
 
 			AssertTextEquals(
-				locator1 = "DDMEditStructure#SETTINGS_TEXT",
+				locator1 = "TextInput#GENERIC_TEXT_INPUT",
 				value1 = "${fieldPlaceholder}");
 		}
 
