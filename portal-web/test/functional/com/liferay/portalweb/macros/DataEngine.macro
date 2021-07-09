@@ -1374,6 +1374,7 @@ definition {
 				locator1 = "DDMEditStructure#SETTINGS_TEXT",
 				value1 = "${fieldHelp}");
 		}
+
 		if (isSet(fieldPlaceholder)) {
 			key_fieldLabel = "Placeholder";
 
