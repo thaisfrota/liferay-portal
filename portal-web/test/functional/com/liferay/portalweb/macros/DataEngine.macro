@@ -1377,9 +1377,6 @@ definition {
 	}
 
 	macro viewField {
-		var key_fieldFieldLabel = "${fieldFieldLabel}";
-		var key_text = "${fieldName}";
-
 		Pause(locator1 = "3000");
 
 		if (IsElementNotPresent(key_tabName = "Builder", locator1 = "Sidebar#ACTIVE_TAB")) {
@@ -1387,10 +1384,12 @@ definition {
 		}
 
 		AssertClick.assertPartialTextClickAt(
+			key_fieldFieldLabel = "${fieldFieldLabel}",
 			locator1 = "DDMEditStructure#FORM_FIELD_CONTAINER_LABEL",
 			value1 = "${fieldFieldLabel}");
 
 		AssertTextEquals(
+			key_text = "${fieldName}",
 			locator1 = "Button#ANY",
 			value1 = "${fieldName}");
 
@@ -1400,13 +1399,14 @@ definition {
 
 		if (isSet(fieldHelp)) {
 			AssertTextEquals(
+				key_fieldFieldLabel = "${fieldFieldLabel}",
 				locator1 = "DDMEditStructure#SETTINGS_TEXT",
 				value1 = "${fieldHelp}");
 		}
 
 		if (isSet(fieldPlaceholder)) {
 			AssertTextEquals(
-				key_fieldLabel = "Placeholder",
+				key_fieldLabel = "Placeholder Text",
 				locator1 = "TextInput#GENERIC_TEXT_INPUT",
 				value1 = "${fieldPlaceholder}");
 		}
