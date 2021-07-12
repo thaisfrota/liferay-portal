@@ -1150,6 +1150,33 @@ definition {
 		Click(locator1 = "Sidebar#BACK");
 	}
 
+	macro editFieldType {
+		if (!(isSet(index))) {
+			var index = "1";
+		}
+
+		if (IsElementPresent(locator1 = "Modal#MODAL")) {
+			AssertClick.assertPartialTextClickAt(
+				index = "${index}",
+				key_fieldLabel = "${fieldLabel}",
+				locator1 = "DataEngineBuilder#FIELD_LABEL_IN_MODAL_INDEXED",
+				value1 = "${fieldLabel}");
+		}
+		else {
+			AssertClick.assertPartialTextClickAt(
+				index = "${index}",
+				key_fieldLabel = "${fieldLabel}",
+				locator1 = "DataEngineBuilder#FIELD_LABEL_INDEXED",
+				value1 = "${fieldLabel}");
+		}
+		Check.checkNotVisible(
+			key_fieldFieldLabel = "Field Type",
+			key_optionValue = "${fieldLineType}",
+			locator1 = "WCEditWebContent#SELECTION_OPTION");
+
+		Click(locator1 = "Sidebar#BACK");
+	}
+
 	macro editImageFieldPredefinedValue {
 		AssertClick.assertPartialTextClickAt(
 			key_fieldFieldLabel = "${fieldFieldLabel}",
@@ -1173,6 +1200,33 @@ definition {
 		else {
 			ItemSelector.uploadFile(uploadFileName = "${imageFileName}");
 		}
+	}
+
+	macro editNumericType {
+		if (!(isSet(index))) {
+			var index = "1";
+		}
+
+		if (IsElementPresent(locator1 = "Modal#MODAL")) {
+			AssertClick.assertPartialTextClickAt(
+				index = "${index}",
+				key_fieldLabel = "${fieldLabel}",
+				locator1 = "DataEngineBuilder#FIELD_LABEL_IN_MODAL_INDEXED",
+				value1 = "${fieldLabel}");
+		}
+		else {
+			AssertClick.assertPartialTextClickAt(
+				index = "${index}",
+				key_fieldLabel = "${fieldLabel}",
+				locator1 = "DataEngineBuilder#FIELD_LABEL_INDEXED",
+				value1 = "${fieldLabel}");
+		}
+		Check.checkNotVisible(
+			key_fieldFieldLabel = "My numeric type is:",
+			key_optionValue = "${fieldLineType}",
+			locator1 = "WCEditWebContent#SELECTION_OPTION");
+
+		Click(locator1 = "Sidebar#BACK");
 	}
 
 	macro gotoCreateNewFieldset {
@@ -1375,6 +1429,7 @@ definition {
 				locator1 = "DDMEditStructure#SETTINGS_TEXT",
 				value1 = "${fieldHelp}");
 		}
+
 		if (isSet(fieldPlaceholder)) {
 			AssertTextEquals(
 				key_fieldLabel = "Placeholder Text",
@@ -1443,12 +1498,68 @@ definition {
 		}
 	}
 
+	macro viewFieldType {
+		if (!(isSet(index))) {
+			var index = "1";
+		}
+
+		if (IsElementPresent(locator1 = "Modal#MODAL")) {
+			AssertClick.assertPartialTextClickAt(
+				index = "${index}",
+				key_fieldLabel = "${fieldLabel}",
+				locator1 = "DataEngineBuilder#FIELD_LABEL_IN_MODAL_INDEXED",
+				value1 = "${fieldLabel}");
+		}
+		else {
+			AssertClick.assertPartialTextClickAt(
+				index = "${index}",
+				key_fieldLabel = "${fieldLabel}",
+				locator1 = "DataEngineBuilder#FIELD_LABEL_INDEXED",
+				value1 = "${fieldLabel}");
+		}
+
+		AssertChecked.assertCheckedNotVisible(
+			key_fieldFieldLabel = "Field Type",
+			key_optionValue = "${fieldLineType}",
+			locator1 = "WCEditWebContent#SELECTION_OPTION");
+
+		Click(locator1 = "Sidebar#BACK");
+	}
+
 	macro viewNestedField {
 		AssertTextEquals.assertValue(
 			key_fieldName = "${fieldName}",
 			key_nestedFieldName = "${nestedField}",
 			locator1 = "DDMField#NESTED_INPUT",
 			value1 = "${nestedFieldData}");
- 	}
+	}
+
+	macro viewNumericType {
+		if (!(isSet(index))) {
+			var index = "1";
+		}
+
+		if (IsElementPresent(locator1 = "Modal#MODAL")) {
+			AssertClick.assertPartialTextClickAt(
+				index = "${index}",
+				key_fieldLabel = "${fieldLabel}",
+				locator1 = "DataEngineBuilder#FIELD_LABEL_IN_MODAL_INDEXED",
+				value1 = "${fieldLabel}");
+		}
+		else {
+			AssertClick.assertPartialTextClickAt(
+				index = "${index}",
+				key_fieldLabel = "${fieldLabel}",
+				locator1 = "DataEngineBuilder#FIELD_LABEL_INDEXED",
+				value1 = "${fieldLabel}");
+		}
+
+		AssertChecked.assertCheckedNotVisible(
+			key_fieldFieldLabel = "My numeric type is:",
+			key_optionValue = "${fieldLineType}",
+			locator1 = "WCEditWebContent#SELECTION_OPTION");
+
+		Click(locator1 = "Sidebar#BACK");
+	}
 
 }
