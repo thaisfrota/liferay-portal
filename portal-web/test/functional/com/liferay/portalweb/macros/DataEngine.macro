@@ -1107,16 +1107,16 @@ definition {
 
 		if (isSet(fieldPlaceholder)) {
 			var key_fieldFieldLabel = "${fieldFieldLabel}";
+			var key_fieldLabel = "Placeholder";
 			var key_text = "Placeholder";
 
 			Click(locator1 = "Sidebar#DDM_ANY");
-
 			Type(
 				locator1 = "Sidebar#DDM_ANY",
 				value1 = "${fieldPlaceholder}");
 
 			AssertTextEquals(
-				locator1 = "DDMEditStructure#SETTINGS_TEXT",
+				locator1 = "TextInput#GENERIC_TEXT_INPUT",
 				value1 = "${fieldPlaceholder}");
 		}
 
@@ -1374,6 +1374,12 @@ definition {
 			AssertTextEquals(
 				locator1 = "DDMEditStructure#SETTINGS_TEXT",
 				value1 = "${fieldHelp}");
+		}
+		if (isSet(fieldPlaceholder)) {
+			AssertTextEquals(
+				key_fieldLabel = "Placeholder Text",
+				locator1 = "TextInput#GENERIC_TEXT_INPUT",
+				value1 = "${fieldPlaceholder}");
 		}
 	}
 
