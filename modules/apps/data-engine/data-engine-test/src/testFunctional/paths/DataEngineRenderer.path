@@ -17,7 +17,6 @@
 </tr>
 <tr>
 	<td>REPEATABLE_FIELD_DELETE_BUTTON_INDEXED</td>
-<<<<<<< HEAD
 	<td>xpath=((//label[normalize-space(text())='${key_fieldLabel}']/parent::div/preceding-sibling::div[contains(@class,'repeatable-toolbar')]//button[contains(@class,'repeatable-delete-button')]) | (//label[normalize-space(text())='${key_fieldLabel}']/preceding-sibling::div[contains(@class,'repeatable-toolbar')]//button[contains(@class,'repeatable-delete-button')]))[${index}]</td>
 	<td></td>
 </tr>
@@ -29,9 +28,6 @@
 <tr>
 	<td>SELECT_FROM_LIST_SELECTED_OPTION_INDEXED</td>
 	<td>xpath=(//label[normalize-space(text())='${key_fieldLabel}']//following-sibling::div[contains(@class,'form-builder-select-field')]//div[contains(@class,'option-selected')])[${index}]</td>
-=======
-	<td>xpath=((//label[normalize-space(text())='${key_fieldLabel}']/parent::div/preceding-sibling::div[contains(@class,'repeatable-toolbar')]//button[contains(@class,'repeatable-add-button')]) | (//label[normalize-space(text())='${key_fieldLabel}']/preceding-sibling::div[contains(@class,'repeatable-toolbar')]//button[contains(@class,'repeatable-delete-button')]))[${index}]</td>
->>>>>>> b8a913f (LRQA-69035 Add path to delete repeatable)
 	<td></td>
 </tr>
 <tr>
