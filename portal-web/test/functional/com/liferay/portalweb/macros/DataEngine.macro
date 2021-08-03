@@ -770,6 +770,17 @@ definition {
 		Button.clickDelete();
 	}
 
+	macro deleteRepeatableField {
+		if (!(isSet(index))) {
+			var index = "1";
+		}
+
+		Click(
+			index = "${index}",
+			key_fieldLabel = "${fieldLabel}",
+			locator1 = "DataEngineRenderer#REPEATABLE_FIELD_DELETE_BUTTON_INDEXED");
+	}
+
 	macro duplicate {
 		if (isSet(fieldFieldLabel)) {
 			Click(
