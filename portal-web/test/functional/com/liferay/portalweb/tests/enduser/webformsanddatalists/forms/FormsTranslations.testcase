@@ -1023,6 +1023,7 @@ definition {
 	test RichTextFieldCanBeTranslated {
 		property forms.functional = "false";
 		property portal.acceptance = "false";
+		property portal.upstream = "quarantine";
 
 		ProductMenu.gotoPortlet(
 			category = "Content &amp; Data",
